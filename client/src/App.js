@@ -5,41 +5,44 @@ import Container from '@material-ui/core/Container';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import Home from './Home';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-	uri: 'http://localhost:4000/graphql',
+    uri: 'http://localhost:4000/graphql',
 });
 
 const defaultOptions = {
-	watchQuery: {
-		fetchPolicy: 'cache',
-		errorPolicy: 'all',
-	},
-	query: {
-		fetchPolicy: 'cache',
-		errorPolicy: 'all',
-	},
+    watchQuery: {
+        fetchPolicy: 'cache',
+        errorPolicy: 'all',
+    },
+    query: {
+        fetchPolicy: 'cache',
+        errorPolicy: 'all',
+    },
 };
 
 const client = new ApolloClient({
-	cache,
-	link,
-	defaultOptions: defaultOptions,
+    cache,
+    link,
+    defaultOptions: defaultOptions,
 });
 
 const App = () => {
-	return (
-		<ApolloProvider client={client}>
-			<div>header</div>
-			<div>body</div>
-			<Container maxWidth="sm">
-				<BrowserRouter>
-					<Switch></Switch>
-				</BrowserRouter>
-			</Container>
-		</ApolloProvider>
-	);
+    return (
+        <ApolloProvider client={client}>
+            <div>header</div>
+            <div>body</div>
+            <Container maxWidth="sm">
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                    </Switch>
+                </BrowserRouter>
+            </Container>
+        </ApolloProvider>
+    );
 };
 
 export default App;

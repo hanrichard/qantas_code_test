@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import AirportItem from './AirportItem';
+import Loader from './Loader';
 
 export const GET_AIRPORTS_QUERY = gql`
     {
@@ -26,7 +27,7 @@ export const GET_AIRPORTS_QUERY = gql`
 const Home = () => {
     const { loading, error, data } = useQuery(GET_AIRPORTS_QUERY);
 
-    if (loading) return <div>loading...</div>;
+    if (loading) return <Loader />;
     if (error) return <div>{error.message}</div>;
 
     console.log(data.airports);

@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 
 export const GET_AIRPORT_QUERY = gql`
     {
@@ -25,7 +26,7 @@ export const GET_AIRPORT_QUERY = gql`
 const AirportDetails = props => {
     const { loading, error, data } = useQuery(GET_AIRPORT_QUERY);
 
-    if (loading) return <div>loading...</div>;
+    if (loading) return <Loader />;
 
     if (error) return <div>{error.message}</div>;
 

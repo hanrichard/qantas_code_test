@@ -6,6 +6,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import Home from './Home';
+import AirportDetails from './AirportDetails';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -37,6 +38,7 @@ const App = () => {
             <Container maxWidth="sm">
                 <BrowserRouter>
                     <Switch>
+                        <Route path="/airport/:id" component={AirportDetails} />
                         <Route exact path="/" component={Home} />
                     </Switch>
                 </BrowserRouter>

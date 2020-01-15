@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
+import AirportItem from './AirportItem';
 
 export const GET_AIRPORTS_QUERY = gql`
     {
@@ -31,7 +32,7 @@ const Home = () => {
     console.log(data.airports);
 
     const airportsList = data.airports.map(airport => {
-        return <div key={airport.airportCode}>{airport.airportCode}</div>;
+        return <AirportItem key={airport.airportCode} airport={airport} />;
     });
     return (
         <div>

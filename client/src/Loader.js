@@ -1,11 +1,16 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import styled from 'styled-components';
+import componentStyle from './Loader.style';
 
+const Wrapper = styled.div`
+    ${componentStyle}
+`;
 const Loader = () => {
     return (
-        <div>
+        <Wrapper>
             <CircularProgress size={100} />
-        </div>
+        </Wrapper>
     );
 };
 

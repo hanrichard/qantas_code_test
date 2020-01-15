@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import Home from './Home';
 import AirportDetails from './AirportDetails';
+import Header from './Header';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -33,8 +34,7 @@ const client = new ApolloClient({
 const App = () => {
     return (
         <ApolloProvider client={client}>
-            <div>header</div>
-            <div>body</div>
+            <Header />
             <Container maxWidth="sm">
                 <BrowserRouter>
                     <Switch>

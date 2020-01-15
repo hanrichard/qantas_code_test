@@ -30,11 +30,14 @@ const Home = () => {
 
     console.log(data.airports);
 
+    const airportsList = data.airports.map(airport => {
+        return <div key={airport.airportCode}>{airport.airportCode}</div>;
+    });
     return (
         <div>
             <div>
                 <Container maxWidth="sm">
-                    <div className="AirportList__list">list</div>
+                    <div className="AirportList__list">{airportsList}</div>
                 </Container>
             </div>
         </div>

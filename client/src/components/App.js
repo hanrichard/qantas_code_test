@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
-import HomeContainer from './Home.container';
-import AirportDetailsContainer from './AirportDetails.container';
+import HomeContainer from '../containers/Home.container';
+import AirportDetailsContainer from '../containers/AirportDetails.container';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Container from '@material-ui/core/Container';

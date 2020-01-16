@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import AirportDetails from './AirportDetails';
 import Adapter from 'enzyme-adapter-react-16';
-import Card from '@material-ui/core/Card';
 configure({ adapter: new Adapter() });
 
 function setup() {

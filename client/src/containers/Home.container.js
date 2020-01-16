@@ -1,9 +1,9 @@
 import React from 'react';
-import Loader from './Loader';
+import Loader from '../components/Loader';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import PropTypes from 'prop-types';
-import Home from './Home';
+import Home from '../components/Home';
 
 export const GET_AIRPORTS_QUERY = gql`
     {

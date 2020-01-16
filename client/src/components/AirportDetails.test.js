@@ -1,44 +1,39 @@
 import React from 'react';
-import { MockedProvider } from '@apollo/react-testing';
+import { shallow, configure } from 'enzyme';
+import AirportItem from './AirportItem';
 import Adapter from 'enzyme-adapter-react-16';
-import { configure } from 'enzyme';
-import AirportDetails, { GET_AIRPORT_QUERY } from './AirportDetails';
-import TestRenderer from 'react-test-renderer';
-
+import Card from '@material-ui/core/Card';
 configure({ adapter: new Adapter() });
 
-const mocks = [
-    {
-        request: {
-            query: GET_AIRPORT_QUERY,
-        },
-        result: {
-            data: {
-                airports: {
-                    airportCode: 'AAA',
-                    airportName: 'Anaa',
-                    location: {
-                        latitude: '17.25',
-                        longitude: '145.3',
-                    },
-                    city: {
-                        timeZoneName: 'Pacific/Tahiti',
-                    },
-                    country: {
-                        countryName: 'French Polynesia',
-                    },
-                },
+function setup() {
+    const props = {
+        airport: {
+            airportName: 'syd',
+            country: {
+                countryName: 'aus',
             },
+            airportCode: 'aaa',
         },
-    },
-];
+    };
 
-describe('Airport details component', () => {
-    it('renders without error', () => {
-        TestRenderer.create(
-            <MockedProvider mocks={mocks}>
-                <AirportDetails />
-            </MockedProvider>
-        );
+    const shallowWrapper = shallow(<AirportItem {...props} />);
+
+    return {
+        props,
+        shallowWrapper,
+    };
+}
+
+describe('Airport item component', () => {
+    it('should render self and its subcomponents', () => {
+        const { shallowWrapper } = setup();
+
+        expect(shallowWrapper.find(Card)).toHaveLength(1);
+        expect(shallowWrapper.text().includes('syd')).toBe(true);
+        expect(shallowWrapper.text().includes('aus')).toBe(true);
+        expect(shallowWrapper.find('.AirportList__card')).toHaveLength(1);
+        expect(shallowWrapper.find('.AirportList__link')).toHaveLength(1);
+        expect(shallowWrapper.find('.AirportList__link-airportName')).toHaveLength(1);
+        expect(shallowWrapper.find('.AirportList__link-countryName')).toHaveLength(1);
     });
 });

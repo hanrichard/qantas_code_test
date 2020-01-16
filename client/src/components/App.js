@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import Home from './Home';
-import AirportDetails from './AirportDetails';
+import AirportDetailsContainer from './AirportDetails.container';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
@@ -44,7 +44,7 @@ const App = () => {
                     <BrowserRouter>
                         <Header />
                         <Switch>
-                            <Route path="/airport/:id" component={AirportDetails} />
+                            <Route path="/airport/:id" component={AirportDetailsContainer} />
                             <Route exact path="/" component={Home} />
                         </Switch>
                     </BrowserRouter>

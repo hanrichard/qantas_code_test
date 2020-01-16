@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Loader from './Loader';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -8,40 +7,14 @@ import styled from 'styled-components';
 import componentStyle from './AirportDetails.style';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
 
 const Wrapper = styled.div`
     ${componentStyle}
 `;
-export const GET_AIRPORT_QUERY = gql`
-    {
-        airports {
-            airportCode
-            airportName
-            location {
-                latitude
-                longitude
-            }
-            city {
-                timeZoneName
-            }
-            country {
-                countryName
-            }
-        }
-    }
-`;
 
-const AirportDetails = props => {
-    const { loading, error, data } = useQuery(GET_AIRPORT_QUERY);
-
-    if (loading) return <Loader />;
-
-    if (error) return <div>{error.message}</div>;
-
-    const airport = data.airports.filter(airport => {
-        return airport.airportCode === props.match.params.id;
+const AirportDetails = ({ airportId, airports }) => {
+    const airport = airports.filter(airport => {
+        return airport.airportCode === airportId;
     })[0];
 
     return (

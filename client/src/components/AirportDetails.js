@@ -87,8 +87,8 @@ const AirportDetails = props => {
                     )}
                 </CardContent>
             </Card>
-            <Link className="airportDetail__button" to="/">
-                <Button variant="contained" color="primary" size="large">
+            <Link className="airportDetail__button-wrap" to="/">
+                <Button variant="contained" color="primary" size="large" className="airportDetail__button">
                     Back
                 </Button>
             </Link>

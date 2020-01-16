@@ -39,10 +39,10 @@ const client = new ApolloClient({
 const App = () => {
     return (
         <ApolloProvider client={client}>
-            <Header />
             <Wrapper>
                 <Container maxWidth="sm">
                     <BrowserRouter>
+                        <Header />
                         <Switch>
                             <Route path="/airport/:id" component={AirportDetails} />
                             <Route exact path="/" component={Home} />

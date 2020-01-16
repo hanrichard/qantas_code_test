@@ -11,13 +11,13 @@ Client provides the front-end to view datas
 
 ## Tech stacks
 
-GraphQL, react, scss
+GraphQL, React, scss, style-component, es6, material-ui
 
 ## HOW-TO run:
 
-### to start a server
+### to start the Server
 
-Go to server folder, you can run:
+Go to SERVER folder, and open termal and install all related node modules, please run:
 
 #### `yarn install`
 
@@ -29,9 +29,9 @@ Runs the server<br>
 It also opens [http://localhost:4000/graphql](http://localhost:4000/graphql) to view it in the browser,
 and run your query or mutation
 
-### to start the page
+### to start the App
 
-Go to client folder, and run:
+Go to CLIENT folder, and open termal and install all related node modules, please run:
 
 #### `yarn install`
 

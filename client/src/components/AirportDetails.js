@@ -71,20 +71,7 @@ const AirportDetails = ({ airportId, airports }) => {
 
 AirportDetails.propTypes = {
     airportId: PropTypes.string,
-    airports: PropTypes.shape({
-        airportCode: PropTypes.string,
-        airportName: PropTypes.string,
-        location: PropTypes.shape({
-            longitude: PropTypes.string,
-            latitude: PropTypes.string,
-        }),
-        city: PropTypes.shape({
-            timeZoneName: PropTypes.string,
-        }),
-        country: PropTypes.shape({
-            countryName: PropTypes.string,
-        }),
-    }),
+    airports: PropTypes.array,
 };
 
 export default AirportDetails;

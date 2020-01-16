@@ -1,6 +1,6 @@
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
-import Home from './Home';
+import HomeContainer from './Home.container';
 import AirportDetailsContainer from './AirportDetails.container';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -45,7 +45,7 @@ const App = () => {
                         <Header />
                         <Switch>
                             <Route path="/airport/:id" component={AirportDetailsContainer} />
-                            <Route exact path="/" component={Home} />
+                            <Route exact path="/" component={HomeContainer} />
                         </Switch>
                     </BrowserRouter>
                 </Container>

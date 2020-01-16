@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, configure } from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import AirportItem from './AirportItem';
 import Adapter from 'enzyme-adapter-react-16';
 import Card from '@material-ui/core/Card';

@@ -1,19 +1,19 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import componentStyle from './AirportDetails.style';
-import Loader from './Loader';
+import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
 const Wrapper = styled.div`
     ${componentStyle}
 `;
-
 export const GET_AIRPORT_QUERY = gql`
     {
         airports {
@@ -84,6 +84,19 @@ const AirportDetails = props => {
             </Link>
         </Wrapper>
     );
+};
+
+AirportDetails.propTypes = {
+    airport: PropTypes.shape({
+        airportName: PropTypes.string,
+        location: PropTypes.shape({
+            longitude: PropTypes.string,
+            latitude: PropTypes.string,
+        }),
+        city: PropTypes.shape({
+            timeZoneName: PropTypes.string,
+        }),
+    }),
 };
 
 export default AirportDetails;

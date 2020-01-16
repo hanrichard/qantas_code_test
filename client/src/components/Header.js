@@ -9,7 +9,7 @@ const Header = () => {
         <AppBar>
             <Toolbar>
                 <Container maxWidth="sm">
-                    <Typography variant="h6">Airport datas</Typography>
+                    <Typography variant="h6">Qantas airport datas</Typography>
                 </Container>
             </Toolbar>
         </AppBar>

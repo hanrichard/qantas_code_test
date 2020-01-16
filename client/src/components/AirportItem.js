@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import styled from 'styled-components';
 import componentStyle from './AirportItem.style';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
     ${componentStyle}
@@ -22,6 +23,16 @@ const AirportItem = props => {
             </Card>
         </Wrapper>
     );
+};
+
+AirportItem.propTypes = {
+    airport: PropTypes.shape({
+        airportName: PropTypes.string,
+        airportCode: PropTypes.string,
+        country: PropTypes.shape({
+            countryName: PropTypes.string,
+        }),
+    }),
 };
 
 export default AirportItem;

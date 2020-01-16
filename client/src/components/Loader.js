@@ -2,6 +2,7 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styled from 'styled-components';
 import componentStyle from './Loader.style';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
     ${componentStyle}
@@ -12,6 +13,10 @@ const Loader = () => {
             <CircularProgress size={100} />
         </Wrapper>
     );
+};
+
+Loader.propTypes = {
+    size: PropTypes.number,
 };
 
 export default Loader;

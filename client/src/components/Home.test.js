@@ -1,7 +1,7 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, mount, render, configure } from 'enzyme';
+import { configure } from 'enzyme';
 import Home, { GET_AIRPORTS_QUERY } from './Home';
 import TestRenderer from 'react-test-renderer';
 

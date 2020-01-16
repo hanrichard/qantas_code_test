@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, configure } from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import Header from './Header';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
@@ -13,7 +13,7 @@ function setup() {
 }
 
 describe('Header component', () => {
-    it('should render self and its subcomponents', () => {
+    it('should render', () => {
         const { shallowWrapper } = setup();
         expect(shallowWrapper.text().includes('Qantas airport datas')).toBe(true);
     });

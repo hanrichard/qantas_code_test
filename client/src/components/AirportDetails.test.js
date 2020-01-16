@@ -33,7 +33,7 @@ const mocks = [
     },
 ];
 
-describe('Airport item component', () => {
+describe('Airport details component', () => {
     it('renders without error', () => {
         TestRenderer.create(
             <MockedProvider mocks={mocks}>

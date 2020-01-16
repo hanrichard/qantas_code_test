@@ -1,22 +1,32 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import AirportItem from './AirportItem';
+import AirportDetails from './AirportDetails';
 import Adapter from 'enzyme-adapter-react-16';
 import Card from '@material-ui/core/Card';
 configure({ adapter: new Adapter() });
 
 function setup() {
     const props = {
-        airport: {
-            airportName: 'syd',
-            country: {
-                countryName: 'aus',
+        airportId: 'AAA',
+        airports: [
+            {
+                airportCode: 'AAA',
+                airportName: 'Anaa',
+                location: {
+                    latitude: '17.25',
+                    longitude: '145.3',
+                },
+                city: {
+                    timeZoneName: 'Pacific/Tahiti',
+                },
+                country: {
+                    countryName: 'French Polynesia',
+                },
             },
-            airportCode: 'aaa',
-        },
+        ],
     };
 
-    const shallowWrapper = shallow(<AirportItem {...props} />);
+    const shallowWrapper = shallow(<AirportDetails {...props} />);
 
     return {
         props,
@@ -28,12 +38,8 @@ describe('Airport item component', () => {
     it('should render self and its subcomponents', () => {
         const { shallowWrapper } = setup();
 
-        expect(shallowWrapper.find(Card)).toHaveLength(1);
-        expect(shallowWrapper.text().includes('syd')).toBe(true);
-        expect(shallowWrapper.text().includes('aus')).toBe(true);
-        expect(shallowWrapper.find('.AirportList__card')).toHaveLength(1);
-        expect(shallowWrapper.find('.AirportList__link')).toHaveLength(1);
-        expect(shallowWrapper.find('.AirportList__link-airportName')).toHaveLength(1);
-        expect(shallowWrapper.find('.AirportList__link-countryName')).toHaveLength(1);
+        expect(shallowWrapper.text().includes('Anaa')).toBe(true);
+        expect(shallowWrapper.text().includes('17.25')).toBe(true);
+        expect(shallowWrapper.text().includes('145.3')).toBe(true);
     });
 });

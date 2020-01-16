@@ -70,7 +70,9 @@ const AirportDetails = ({ airportId, airports }) => {
 };
 
 AirportDetails.propTypes = {
-    airport: PropTypes.shape({
+    airportId: PropTypes.string,
+    airports: PropTypes.shape({
+        airportCode: PropTypes.string,
         airportName: PropTypes.string,
         location: PropTypes.shape({
             longitude: PropTypes.string,
@@ -78,6 +80,9 @@ AirportDetails.propTypes = {
         }),
         city: PropTypes.shape({
             timeZoneName: PropTypes.string,
+        }),
+        country: PropTypes.shape({
+            countryName: PropTypes.string,
         }),
     }),
 };

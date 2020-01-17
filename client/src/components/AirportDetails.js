@@ -32,12 +32,12 @@ const AirportDetails = ({ airportId, airports }) => {
                             <ul>
                                 <li>
                                     <Typography variant="body1" gutterBottom>
-                                        latitude: {airport.location.latitude}{' '}
+                                        latitude: {airport.location.latitude}
                                     </Typography>
                                 </li>
                                 <li>
                                     <Typography variant="body1" gutterBottom>
-                                        longitude: {airport.location.longitude}{' '}
+                                        longitude: {airport.location.longitude}
                                     </Typography>
                                 </li>
                             </ul>

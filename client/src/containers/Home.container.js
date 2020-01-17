@@ -26,10 +26,8 @@ export const GET_AIRPORTS_QUERY = gql`
 
 const HomeContainer = () => {
     const { loading, error, data } = useQuery(GET_AIRPORTS_QUERY);
-
     if (loading) return <Loader />;
     if (error) return <div>{error.message}</div>;
-
     return <Home airports={data.airports} />;
 };
 

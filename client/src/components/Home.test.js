@@ -32,11 +32,18 @@ function setup() {
     };
 }
 
-describe('Airport item component', () => {
+describe('Home component', () => {
     const { shallowWrapper } = setup();
 
     it('should render', () => {
         expect(shallowWrapper.find('.AirportList__list')).toHaveLength(1);
         expect(shallowWrapper.find('.AirportList__pagination')).toHaveLength(1);
+    });
+
+    it('should render', () => {
+        shallowWrapper.setProps({ airports: [] });
+        expect(shallowWrapper.find('.AirportList__list')).toHaveLength(0);
+        expect(shallowWrapper.find('.AirportList__pagination')).toHaveLength(0);
+        expect(shallowWrapper.text().includes('No result')).toBe(true);
     });
 });

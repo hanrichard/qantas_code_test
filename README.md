@@ -23,7 +23,7 @@ lastest node or node v10.15.0+
 
 Go to SERVER folder, and open termal and install all related node modules, please run:
 
-#### `yarn install`
+#### `yarn install` or `yarn`
 
 To install all needed node modules
 
@@ -37,7 +37,7 @@ and run your query or mutation
 
 Go to CLIENT folder, and open termal and install all related node modules, please run:
 
-#### `yarn install`
+#### `yarn install` or `yarn`
 
 To install all needed node modules
 

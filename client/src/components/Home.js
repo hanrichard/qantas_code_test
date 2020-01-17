@@ -23,7 +23,7 @@ const Home = ({ airports }) => {
     return (
         <Wrapper>
             {airports && airports.length > 0 ? (
-                <div>
+                <React.Fragment>
                     <div className="AirportList__list">{airportsList}</div>
 
                     <div className="AirportList__pagination">
@@ -37,13 +37,13 @@ const Home = ({ airports }) => {
                             />
                         </Container>
                     </div>
-                </div>
+                </React.Fragment>
             ) : (
-                <div>
+                <React.Fragment>
                     <Typography variant="h4" component="h1" gutterBottom>
                         No result
                     </Typography>
-                </div>
+                </React.Fragment>
             )}
         </Wrapper>
     );

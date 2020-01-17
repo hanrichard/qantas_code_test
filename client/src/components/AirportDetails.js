@@ -22,7 +22,7 @@ const AirportDetails = ({ airportId, airports }) => {
             <Card className="airportDetail__card">
                 <CardContent>
                     {airport ? (
-                        <div>
+                        <React.Fragment>
                             <Typography variant="h4" component="h1" gutterBottom>
                                 Airport Name: {airport.airportName}
                             </Typography>
@@ -50,13 +50,13 @@ const AirportDetails = ({ airportId, airports }) => {
                                     <Typography variant="body1">{airport.city.timeZoneName}</Typography>
                                 </li>
                             </ul>
-                        </div>
+                        </React.Fragment>
                     ) : (
-                        <div>
+                        <React.Fragment>
                             <Typography variant="h4" component="h1" gutterBottom>
                                 No result
                             </Typography>
-                        </div>
+                        </React.Fragment>
                     )}
                 </CardContent>
             </Card>

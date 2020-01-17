@@ -13,6 +13,10 @@ Client provides the front-end to view datas
 
 GraphQL, React, scss, style-component, es6, material-ui
 
+## Running enviorment
+
+lastest node or node v10.15.0+
+
 ## HOW-TO run:
 
 ### to start the Server

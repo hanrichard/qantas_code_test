@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
-import HomeContainer from '../containers/Home.container';
-import AirportDetailsContainer from '../containers/AirportDetails.container';
 import Header from './Header';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
 import componentStyle from './App.style';
@@ -37,6 +35,11 @@ const client = new ApolloClient({
     defaultOptions: defaultOptions,
 });
 
+// import HomeContainer from '../containers/Home.container';
+// import AirportDetailsContainer from '../containers/AirportDetails.container';
+const AirportDetailsContainer = lazy(() => import('../containers/Home.container'));
+const HomeContainer = lazy(() => import('../containers/Home.container'));
+
 const App = isDesktopOrLaptop => {
     console.log(isDesktopOrLaptop);
     return (
@@ -44,11 +47,13 @@ const App = isDesktopOrLaptop => {
             <Wrapper>
                 <Container maxWidth="sm">
                     <BrowserRouter>
-                        <Header />
-                        <Switch>
-                            <Route path="/airport/:id" component={AirportDetailsContainer} />
-                            <Route exact path="/" component={HomeContainer} />
-                        </Switch>
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Header />
+                            <Switch>
+                                <Route path="/airport/:id" component={AirportDetailsContainer} />
+                                <Route exact path="/" component={HomeContainer} />
+                            </Switch>
+                        </Suspense>
                     </BrowserRouter>
                 </Container>
             </Wrapper>

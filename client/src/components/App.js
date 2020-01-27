@@ -35,9 +35,7 @@ const client = new ApolloClient({
     defaultOptions: defaultOptions,
 });
 
-// import HomeContainer from '../containers/Home.container';
-// import AirportDetailsContainer from '../containers/AirportDetails.container';
-const AirportDetailsContainer = lazy(() => import('../containers/Home.container'));
+const AirportDetailsContainer = lazy(() => import('../containers/AirportDetails.container'));
 const HomeContainer = lazy(() => import('../containers/Home.container'));
 
 const App = isDesktopOrLaptop => {

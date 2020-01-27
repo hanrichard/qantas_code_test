@@ -10,6 +10,7 @@ import componentStyle from './App.style';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import withMediaquery from '../hoc/withMediaquery';
 
 const Wrapper = styled.div`
     ${componentStyle}
@@ -36,7 +37,8 @@ const client = new ApolloClient({
     defaultOptions: defaultOptions,
 });
 
-const App = () => {
+const App = isDesktopOrLaptop => {
+    console.log(isDesktopOrLaptop);
     return (
         <ApolloProvider client={client}>
             <Wrapper>
@@ -54,4 +56,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default withMediaquery(App);

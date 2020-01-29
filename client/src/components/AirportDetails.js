@@ -12,11 +12,7 @@ const Wrapper = styled.div`
     ${componentStyle}
 `;
 
-const AirportDetails = ({ airportId, airports }) => {
-    const airport = airports.filter(airport => {
-        return airport.airportCode === airportId;
-    })[0];
-
+const AirportDetails = ({ airport }) => {
     return (
         <Wrapper>
             <Card className="airportDetail__card">

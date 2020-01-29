@@ -31,7 +31,11 @@ const AirportDetailsContainer = props => {
 
     if (error) return <div>{error.message}</div>;
 
-    return <AirportDetails airports={data.airports} airportId={props.match.params.id} />;
+    const airport = data.airports.find(airport => {
+        return airport.airportCode === props.match.params.id;
+    });
+
+    return <AirportDetails airport={airport} />;
 };
 
 AirportDetailsContainer.propTypes = {

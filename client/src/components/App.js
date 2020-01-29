@@ -38,7 +38,7 @@ const client = new ApolloClient({
 const AirportDetailsContainer = lazy(() => import('../containers/AirportDetails.container'));
 const HomeContainer = lazy(() => import('../containers/Home.container'));
 
-const App = isDesktop => {
+const App = () => {
     return (
         <ApolloProvider client={client}>
             <Wrapper>

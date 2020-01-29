@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Home from './Home';
 import Adapter from 'enzyme-adapter-react-16';
+import Renderer from 'react-test-renderer';
 configure({ adapter: new Adapter() });
 
 function setup() {
@@ -31,6 +32,14 @@ function setup() {
         shallowWrapper,
     };
 }
+
+describe('Airport Home', () => {
+    const { shallowWrapper } = setup();
+    it('should match snapshot', () => {
+        const airportHome = Renderer.create(`<BrowserRouter>shallowWrapper</BrowserRouter>`).toJSON();
+        expect(airportHome).toMatchSnapshot();
+    });
+});
 
 describe('Home component', () => {
     const { shallowWrapper } = setup();

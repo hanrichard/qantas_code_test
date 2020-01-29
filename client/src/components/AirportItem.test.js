@@ -3,6 +3,8 @@ import { shallow, configure } from 'enzyme';
 import AirportItem from './AirportItem';
 import Adapter from 'enzyme-adapter-react-16';
 import Card from '@material-ui/core/Card';
+import Renderer from 'react-test-renderer';
+
 configure({ adapter: new Adapter() });
 
 function setup() {
@@ -23,6 +25,14 @@ function setup() {
         shallowWrapper,
     };
 }
+
+describe('Airport item', () => {
+    const { shallowWrapper } = setup();
+    it('should match snapshot', () => {
+        const airportItem = Renderer.create(`<BrowserRouter>shallowWrapper</BrowserRouter>`).toJSON();
+        expect(airportItem).toMatchSnapshot();
+    });
+});
 
 describe('Airport item component', () => {
     it('should render self and its subcomponents', () => {

@@ -7,23 +7,20 @@ configure({ adapter: new Adapter() });
 
 function setup() {
     const props = {
-        airportId: 'AAA',
-        airports: [
-            {
-                airportCode: 'AAA',
-                airportName: 'Anaa',
-                location: {
-                    latitude: '17.25',
-                    longitude: '145.3',
-                },
-                city: {
-                    timeZoneName: 'Pacific/Tahiti',
-                },
-                country: {
-                    countryName: 'French Polynesia',
-                },
+        airport: {
+            airportCode: 'AAA',
+            airportName: 'Anaa',
+            location: {
+                latitude: '17.25',
+                longitude: '145.3',
             },
-        ],
+            city: {
+                timeZoneName: 'Pacific/Tahiti',
+            },
+            country: {
+                countryName: 'French Polynesia',
+            },
+        },
     };
 
     const shallowWrapper = shallow(<AirportDetails {...props} />);
@@ -45,7 +42,7 @@ describe('Airport details component', () => {
     });
 
     it('should render no results, when id is wrong', () => {
-        shallowWrapper.setProps({ airportId: '123' });
+        shallowWrapper.setProps({ airport: null });
         expect(shallowWrapper.text().includes('145.3')).toBe(false);
         expect(shallowWrapper.text().includes('No result')).toBe(true);
     });

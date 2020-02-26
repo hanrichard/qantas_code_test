@@ -25,7 +25,6 @@ const Home = ({ airports }) => {
             {airports && airports.length > 0 ? (
                 <React.Fragment>
                     <div className="AirportList__list">{airportsList}</div>
-
                     <div className="AirportList__pagination">
                         <Container maxWidth="sm">
                             <Pagination
@@ -39,11 +38,9 @@ const Home = ({ airports }) => {
                     </div>
                 </React.Fragment>
             ) : (
-                <React.Fragment>
-                    <Typography variant="h4" component="h1" gutterBottom>
-                        No result
-                    </Typography>
-                </React.Fragment>
+                <Typography variant="h4" component="h1" gutterBottom>
+                    No result
+                </Typography>
             )}
         </Wrapper>
     );

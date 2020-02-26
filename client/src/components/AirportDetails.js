@@ -48,11 +48,9 @@ const AirportDetails = ({ airport }) => {
                             </ul>
                         </React.Fragment>
                     ) : (
-                        <React.Fragment>
-                            <Typography variant="h4" component="h1" gutterBottom>
-                                No result
-                            </Typography>
-                        </React.Fragment>
+                        <Typography variant="h4" component="h1" gutterBottom>
+                            No result
+                        </Typography>
                     )}
                 </CardContent>
             </Card>

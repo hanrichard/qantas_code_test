@@ -34,7 +34,6 @@ function setup() {
 }
 
 describe('Airport', () => {
-    const { shallowWrapper } = setup();
     it('should match snapshot', () => {
         const airport = Renderer.create(`<BrowserRouter>shallowWrapper</BrowserRouter>`).toJSON();
         expect(airport).toMatchSnapshot();

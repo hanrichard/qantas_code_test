@@ -50,13 +50,7 @@ const Home = ({ airports }) => {
 };
 
 Home.propTypes = {
-    airport: PropTypes.shape({
-        airportName: PropTypes.string,
-        airportCode: PropTypes.string,
-        country: PropTypes.shape({
-            countryName: PropTypes.string,
-        }),
-    }),
+    airports: PropTypes.array,
 };
 
 export default Home;

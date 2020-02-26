@@ -39,6 +39,7 @@ const AirportDetailsContainer = props => {
 };
 
 AirportDetailsContainer.propTypes = {
+    match: PropTypes.string,
     airports: PropTypes.shape({
         airportCode: PropTypes.string,
         airportName: PropTypes.string,
